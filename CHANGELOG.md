@@ -11,6 +11,11 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+
+
+ ## Tag: v0.2.0
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 | 3d47f58 | 2021-04-19 | Chris Schubert | Updating packaging files |
 
 
