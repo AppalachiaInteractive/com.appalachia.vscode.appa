@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 	includeExtensions = config.get('includeFileExtensions', []);
 	excludeFolders = config.get('excludeFolders', []);
 
-	let disposable = vscode.commands.registerCommand('formatallfilesinworkspace.formatAll', async () => {
+	let disposable = vscode.commands.registerCommand('appa.formatAll', async () => {
 		const folders = vscode.workspace.workspaceFolders;
 		if (!folders) {
 			return;
