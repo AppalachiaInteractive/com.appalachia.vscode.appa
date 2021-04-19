@@ -11,6 +11,12 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| 1bbfa33 | 2021-04-19 | Chris Schubert | Fixing bad vsix path for package build output. |
+
+
+ ## Tag: v0.1.0
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 
 
  ## Tag: v0.0.5
