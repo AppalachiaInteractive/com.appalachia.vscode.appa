@@ -11,6 +11,11 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+
+
+ ## Tag: v0.0.5
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 | b81144f | 2021-04-19 | Chris Schubert | Fixing package.json command and config settings for extension |
 
 
