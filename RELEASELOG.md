@@ -8,7 +8,7 @@
 ```
 
 
-# 0.1.0
+# 0.2.0
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
-| a102a08 | 2021-04-19 | Chris Schubert | Resetting package version for initial publish |
+
