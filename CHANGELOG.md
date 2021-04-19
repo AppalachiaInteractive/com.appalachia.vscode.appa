@@ -11,6 +11,12 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| 5abb1ef | 2021-04-19 | Chris Schubert | Trying to correct versioning issue by publishing v0.1.0 |
+
+
+ ## Tag: v0.3.0
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 | 9ec3423 | 2021-04-19 | Chris Schubert | Adding format-all-files command to vscode |
 
 
