@@ -11,6 +11,12 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| 9ec3423 | 2021-04-19 | Chris Schubert | Adding format-all-files command to vscode |
+
+
+ ## Tag: v0.2.1
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 
 
  ## Tag: v0.2.0
