@@ -11,6 +11,12 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| 0012d47 | 2021-04-19 | Chris Schubert | Adding vsce package into prepublish |
+
+
+ ## Tag: v0.0.2
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 | c275139 | 2021-04-19 | Chris Schubert | Trying again to version |
 | a102a08 | 2021-04-19 | Chris Schubert | Resetting package version for initial publish |
 | 5abb1ef | 2021-04-19 | Chris Schubert | Trying to correct versioning issue by publishing v0.1.0 |
