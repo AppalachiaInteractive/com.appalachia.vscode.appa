@@ -10,7 +10,9 @@ let unableToFormat: string[] = [];
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
+	const message = 'Extension "appa" is now active';
+	console.log(message);
+	vscode.window.showInformationMessage(message);
 	const config = vscode.workspace.getConfiguration('formatAll');
 	includeExtensions = config.get('includeFileExtensions', []);
 	excludeFolders = config.get('excludeFolders', []);
