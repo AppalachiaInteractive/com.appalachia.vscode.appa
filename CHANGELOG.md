@@ -11,6 +11,7 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| c275139 | 2021-04-19 | Chris Schubert | Trying again to version |
 | a102a08 | 2021-04-19 | Chris Schubert | Resetting package version for initial publish |
 | 5abb1ef | 2021-04-19 | Chris Schubert | Trying to correct versioning issue by publishing v0.1.0 |
 | 9ec3423 | 2021-04-19 | Chris Schubert | Adding format-all-files command to vscode |
