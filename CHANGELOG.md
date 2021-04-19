@@ -11,6 +11,12 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| 0fbd1fb | 2021-04-19 | Chris Schubert | Fixing command prefix in extension |
+
+
+ ## Tag: v0.0.3
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 | 0012d47 | 2021-04-19 | Chris Schubert | Adding vsce package into prepublish |
 
 
