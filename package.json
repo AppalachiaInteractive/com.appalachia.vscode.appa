@@ -9,6 +9,9 @@
 	"categories": [
 		"Other"
 	],
+	"author": {
+		"name": "Appaclachia Interactive"
+	},
 	"activationEvents": [
 		"onCommand:appa.helloWorld"
 	],
@@ -23,9 +26,10 @@
 	},
 	"icon": "media/icon.png",
 	"files": [
-		"extension.vsix",
+		"appa.vsix",
 		"media/icon.png"
 	],
+	"publisher": "appalachia",
 	"publishConfig": {
 		"registry": "http://localhost:4873/"
 	},
@@ -38,7 +42,7 @@
 		"preversion": "bash ~/com.appalachia/appa/appa package preversion",
 		"version": "bash ~/com.appalachia/appa/appa package version",
 		"postversion": "sh ~/com.appalachia/appa/appa package postversion",
-		"prepublishOnly": "vsce package -o appa.vsix",
+		"prepublishOnly": "~",
 		"compile": "webpack",
 		"watch": "webpack --watch",
 		"package": "webpack --mode production --devtool hidden-source-map",
