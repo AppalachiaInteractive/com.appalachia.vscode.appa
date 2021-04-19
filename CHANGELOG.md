@@ -11,6 +11,12 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| b81144f | 2021-04-19 | Chris Schubert | Fixing package.json command and config settings for extension |
+
+
+ ## Tag: v0.0.4
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 | 0fbd1fb | 2021-04-19 | Chris Schubert | Fixing command prefix in extension |
 
 
