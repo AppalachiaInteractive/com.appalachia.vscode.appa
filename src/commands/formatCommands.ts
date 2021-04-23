@@ -14,14 +14,13 @@ export class FormatAllCommand implements Command {
     public readonly id = 'appa.format.formatAll';
 
     public async execute(): Promise<void> {
-
         vscode.window.withProgress(
             {
                 title: "Formatting all eligible files in workspace...",
                 location: vscode.ProgressLocation.Notification,
             },
             async () => {
-                const config = vscode.workspace.getConfiguration('appa');
+                const config = vscode.workspace.getConfiguration('appa.format');
                 includeFileExtensions = config.get('includeFileExtensions', []);
                 includeFileNames = config.get('includeFileNames', []);
                 excludeFileNames = config.get('excludeFileNames', []);
@@ -31,45 +30,63 @@ export class FormatAllCommand implements Command {
                 if (!folders) {
                     return;
                 }
-                for (const folder of folders) {
-                    await formatAll(folder.uri);
-                }
 
-                getLogger().log(`Formatted all files.`);
+                let sum = 0;
+                for (const folder of folders) {
+                    sum += await formatAllInUri(folder.uri);
+                }
+                
+                const message = "Formatted " + sum + " files."
+                getLogger().log(message);                
+                vscode.window.showInformationMessage(message);
             },
         );
     }
 }
 
-async function formatAll(uri: vscode.Uri): Promise<any> {
+async function formatAllInUri(uri: vscode.Uri): Promise<number> {
     const stat: vscode.FileStat = await vscode.workspace.fs.stat(uri);
     const basename = path.basename(uri.fsPath);
     const extname = path.extname(uri.fsPath);
     const name = basename+extname;
+    let sum = 0;
 
     if ((stat.type & vscode.FileType.Directory) === vscode.FileType.Directory) {
-        if (excludeFolders.includes(basename)) { return; }
+        if (excludeFolders.includes(basename)) { return 0; }
 
         const dirEntries = await vscode.workspace.fs.readDirectory(uri);
 
         for (const dirEntry of dirEntries) {
             const entryName = dirEntry[0];
             const fullEntryPath = vscode.Uri.joinPath(uri, entryName);
-            await formatAll(fullEntryPath);
+            sum += await formatAllInUri(fullEntryPath);
         }
     }
     else if ((stat.type & vscode.FileType.File) === vscode.FileType.File) {
         if (!includeFileNames.includes(name)){
-            if (!includeFileExtensions.includes(extname)) { return; }
-            if (excludeFileNames.includes(name)) { return; }
+            if (!includeFileExtensions.includes(extname)) { return 0; }
+            if (excludeFileNames.includes(name)) { return 0; }
         }
         
-        try {
-            await vscode.window.showTextDocument(uri);
-            await vscode.commands.executeCommand('editor.action.formatDocument');
-        } catch (e) {
-            getLogger().log("Unable to format [" + uri.fsPath + "]: " + e);
-        }
+        let result = await formatFile(uri);
 
+        if (result) {
+            sum += 1;
+        }        
     }
+
+    return sum;
+}
+
+
+async function formatFile(uri: vscode.Uri): Promise<boolean> {    
+    try {
+        await vscode.window.showTextDocument(uri);
+        await vscode.commands.executeCommand('editor.action.formatDocument');
+        return true;
+    } catch (e) {
+        getLogger().log("Unable to format [" + uri.fsPath + "]: " + e);
+    }
+
+    return false;
 }

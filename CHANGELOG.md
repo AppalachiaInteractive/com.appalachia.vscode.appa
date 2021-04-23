@@ -13,6 +13,12 @@
 |------|------|--------|---------|
 
 
+ ## Tag: v0.1.7
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
+| 93719cd | 2021-04-23 | Chris Schubert | Updates to packaging flow |
+
+
  ## Tag: v0.1.6
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
