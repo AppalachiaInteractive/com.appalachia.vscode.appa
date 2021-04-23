@@ -13,7 +13,7 @@
 
 ```
 
-# com.appalachia.vscode.appa
+# appa
 
 VSCode extension for Appalachia Interactive devlopment.
 

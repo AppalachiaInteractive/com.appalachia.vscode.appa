@@ -1,52 +1,32 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import * as path from 'path';
 
-let includeExtensions: string[] = [];
-let excludeFolders: string[] = [];
-let unableToFormat: string[] = [];
+import { CommandManager } from './commandManager';
+import * as commands from './commands/index';
+import { setContext } from './context';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+
+export function activate(context: vscode.ExtensionContext): void {
 	const message = 'Extension "appa" is now active';
 	console.log(message);
 	vscode.window.showInformationMessage(message);
-	const config = vscode.workspace.getConfiguration('formatAll');
-	includeExtensions = config.get('includeFileExtensions', []);
-	excludeFolders = config.get('excludeFolders', []);
 
-	let disposable = vscode.commands.registerCommand('appa.formatAll', async () => {
-		const folders = vscode.workspace.workspaceFolders;
-		if (!folders) {
-			return;
-		}
-		for (const folder of folders) {
-			await formatAll(folder.uri);
-		}
-		vscode.window.showInformationMessage('Finished formatting all.');
-	});
+    setContext(context);
 
-	context.subscriptions.push(disposable);
+    context.subscriptions.push(registerCommands());
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() { }
 
-async function formatAll(uri: vscode.Uri): Promise<any> {
-	const stat: vscode.FileStat = await vscode.workspace.fs.stat(uri);
-	if (((stat.type & vscode.FileType.Directory) === vscode.FileType.Directory) && !excludeFolders.includes(path.basename(uri.fsPath))) {
-		const files = await vscode.workspace.fs.readDirectory(uri);
-		for (const file of files) {
-			await formatAll(vscode.Uri.joinPath(uri, file[0]));
-		}
-	} else if (((stat.type & vscode.FileType.File) === vscode.FileType.File) && includeExtensions.includes(path.extname(uri.fsPath))) {
-		try {
-			await vscode.window.showTextDocument(uri);
-			await vscode.commands.executeCommand('editor.action.formatDocument');
-		} catch (e) {
-			unableToFormat.push(uri.fsPath);
-		}
-	}
+function registerCommands(): vscode.Disposable {
+    const commandManager = new CommandManager();
+
+    commandManager.register(
+        // Format commands
+        new commands.FormatAllCommand(),
+    );
+
+    return commandManager;
 }
+

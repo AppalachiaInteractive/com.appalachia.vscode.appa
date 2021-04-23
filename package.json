@@ -1,6 +1,6 @@
 {
   "name": "appa",
-  "displayName": "appa",
+  "displayName": "Appalachia Interactive",
   "description": "VSCode extension for Appalachia Interactive development.",
   "version": "0.1.1",
   "engines": {
@@ -9,50 +9,10 @@
   "categories": [
     "Other"
   ],
+  "icon": "media/icon.png",
   "author": {
     "name": "Appaclachia Interactive"
   },
-  "activationEvents": [
-    "onCommand:appa.formatAll"
-  ],
-  "main": "./dist/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "appa.formatAll",
-        "title": "Format All Files In Workspace"
-      }
-    ],
-    "configuration": {
-      "type": "object",
-      "title": "Format All Files in Workspace",
-      "properties": {
-        "formatAll.includeFileExtensions": {
-          "type": "array",
-          "default": [
-            ".ts",
-            ".json"
-          ],
-          "description": "List of file extensions to include when formating all files."
-        },
-        "formatAll.excludeFolders": {
-          "type": "array",
-          "default": [
-            "node_modules",
-            "out",
-            ".vscode-test",
-            "media"
-          ],
-          "description": "List of folder to exclude when formatting all files."
-        }
-      }
-    }
-  },
-  "icon": "media/icon.png",
-  "files": [
-    "appa.vsix",
-    "media/icon.png"
-  ],
   "publisher": "appalachia",
   "publishConfig": {
     "registry": "http://localhost:4873/"
@@ -61,20 +21,84 @@
     "url": "https://github.com/AppalachiaInteractive/com.appalachia.vscode.appa.git",
     "type": "git"
   },
+  "homepage": "https://github.com/AppalachiaInteractive/com.appalachia.vsocde.appa",
+  "bugs": "https://github.com/AppalachiaInteractive/com.appalachia.vscode.appa/issues",
+  "license": "MIT",
+  
   "scripts": {
-    "vscode:prepublish": "npm run package",
-    "preversion": "bash ~/com.appalachia/appa/appa package preversion",
-    "version": "bash ~/com.appalachia/appa/appa package version",
-    "postversion": "bash ~/com.appalachia/appa/appa package postversion-vscode",
-    "compile": "webpack",
-    "watch": "webpack --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "test-compile": "tsc -p ./",
-    "test-watch": "tsc -watch -p ./",
-    "pretest": "npm run test-compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "preversion" : "bash ~/com.appalachia/appa/appa package vscode preversion",
+    "version" : "bash ~/com.appalachia/appa/appa package vscode version",
+    "postversion" : "bash ~/com.appalachia/appa/appa package vscode postversion",
+    "prepack" : "bash ~/com.appalachia/appa/appa package vscode prepack",    
+    "package" : "bash ~/com.appalachia/appa/appa package vscode package",
+    "postpack" : "bash ~/com.appalachia/appa/appa package vscode postpack",
+    "vscode:prepublish" : "bash ~/com.appalachia/appa/appa package vscode vscode_prepublish",
+    "prepublishOnly" : "bash ~/com.appalachia/appa/appa package vscode prepublishOnly",
+    "publish" : "bash ~/com.appalachia/appa/appa package vscode publish",
+    "postpublish" : "bash ~/com.appalachia/appa/appa package vscode postpublish",
+    "lint" : "bash ~/com.appalachia/appa/appa package vscode lint",
+    "compile" : "bash ~/com.appalachia/appa/appa package vscode compile",
+    "watch" : "bash ~/com.appalachia/appa/appa package vscode watch",
+    "test" : "bash ~/com.appalachia/appa/appa package vscode test",
+    "test-compile" : "bash ~/com.appalachia/appa/appa package vscode test_compile",
+    "test-watch" : "bash ~/com.appalachia/appa/appa package vscode test_watch"
   },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:appa.format.formatAll"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "appa.format.formatAll",
+        "title": "Format All Files In Workspace",
+        "category": "Appalachia Interactive"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Appalachia Interactive",
+      "properties": {
+        "appa.formatAll.includeFileExtensions": {
+          "type": "array",
+          "default": [
+            ".ts",
+            ".json",
+            ".py",
+            ".cs"
+          ],
+          "description": "List of file extensions to include when formating all files."
+        },
+        "appa.format.formatAll.includeFileNames": {
+          "type": "array",
+          "default": [
+          ],
+          "description": "List of additional file names that will be included when formatting, regardless of matching by extension."
+        },
+        "appa.format.formatAll.excludeFileNames": {
+          "type": "array",
+          "default": [
+          ],
+          "description": "List of file names that will be excluded from formatting, regardless of matching by extension."
+        },
+        "appa.format.formatAll.excludeFolders": {
+          "type": "array",
+          "default": [
+            "node_modules",
+            "out",
+            ".vscode-test",
+            "media",
+            "__pycache__"
+          ],
+          "description": "List of folder to exclude when formatting all files."
+        }
+      }
+    }
+  },
+  "files": [
+    "appa.vsix",
+    "media/icon.png"
+  ],
   "devDependencies": {
     "@types/vscode": "^1.55.0",
     "@types/glob": "^7.1.3",
