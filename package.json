@@ -2,7 +2,7 @@
   "name": "appa",
   "displayName": "Appalachia Interactive",
   "description": "VSCode extension for Appalachia Interactive development.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "engines": {
     "vscode": "^1.55.0"
   },

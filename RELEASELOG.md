@@ -8,7 +8,7 @@
 ```
 
 
-# 0.1.2
+# 0.1.3
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
-| e10a742 | 2021-04-23 | Chris Schubert | Format All command |
+
