@@ -125,7 +125,6 @@ async function formatAllInUri(
     const basename = path.basename(uri.fsPath);
     const extname = path.extname(uri.fsPath);
     const name = basename + extname;
-    const logger = getLogger();
     let sum = 0;
 
     if ((stat.type & vscode.FileType.Directory) === vscode.FileType.Directory) {

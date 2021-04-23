@@ -192,7 +192,6 @@ function formatAllInUri(uri, commands, verb, verbPresent, verbPast, save, close)
         const basename = path.basename(uri.fsPath);
         const extname = path.extname(uri.fsPath);
         const name = basename + extname;
-        const logger = logger_1.getLogger();
         let sum = 0;
         if ((stat.type & vscode.FileType.Directory) === vscode.FileType.Directory) {
             if (excludeFolders.includes(basename)) {
