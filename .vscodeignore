@@ -15,7 +15,7 @@ node_modules
 out/**
 
 # Ignore vsce output
-*.vsix
+# *.vsix
 
 # Ignore development files
 .editorconfig

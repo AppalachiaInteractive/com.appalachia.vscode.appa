@@ -11,6 +11,18 @@
 ## Unreleased
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+
+
+ ## Tag: v0.1.2
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
+| e10a742 | 2021-04-23 | Chris Schubert | Format All command |
+| 3b6d397 | 2021-04-20 | Chris Schubert | Updating gitignore and attempting new publish |
+
+
+ ## Tag: v0.1.1
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
 | 1bbfa33 | 2021-04-19 | Chris Schubert | Fixing bad vsix path for package build output. |
 
 
