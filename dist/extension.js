@@ -83,6 +83,7 @@ exports.SortImportsAndFormatAndSaveAllCommand = exports.SortImportsAndFormatAllC
 const vscode = __webpack_require__(1);
 const logger_1 = __webpack_require__(5);
 const path = __webpack_require__(6);
+//import { basename } from 'node:path';
 let includeFileExtensions = [];
 let includeFileNames = [];
 let excludeFileNames = [];
@@ -156,11 +157,14 @@ exports.SortImportsAndFormatAndSaveAllCommand = SortImportsAndFormatAndSaveAllCo
 function toSentenceCase(str) {
     return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase();
 }
-function toTitleCase(str) {
-    return str.replace(/\w\S*/g, function (txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
-}
+// function toTitleCase(str: string) {
+//     return str.replace(
+//         /\w\S*/g,
+//         function (txt: string) {
+//             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+//         }
+//     );
+// }
 function executeFormatAll(commands, verb, verbPresent, verbPast, save, close) {
     return __awaiter(this, void 0, void 0, function* () {
         const config = vscode.workspace.getConfiguration('appa.format');

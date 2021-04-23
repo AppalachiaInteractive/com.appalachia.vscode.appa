@@ -4,7 +4,7 @@ import { Command } from '../commandManager';
 import { getLogger } from '../logger';
 
 import * as path from 'path';
-import { basename } from 'node:path';
+//import { basename } from 'node:path';
 
 let includeFileExtensions: string[] = [];
 let includeFileNames: string[] = [];
@@ -64,14 +64,14 @@ export class SortImportsAndFormatAndSaveAllCommand implements Command {
 function toSentenceCase(str: string) {
     return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase();
 }
-function toTitleCase(str: string) {
-    return str.replace(
-        /\w\S*/g,
-        function (txt: string) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        }
-    );
-}
+// function toTitleCase(str: string) {
+//     return str.replace(
+//         /\w\S*/g,
+//         function (txt: string) {
+//             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+//         }
+//     );
+// }
 
 async function executeFormatAll(
     commands: string[],
