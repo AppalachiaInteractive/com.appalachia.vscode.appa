@@ -93,7 +93,7 @@
     }
   },
   "files": [
-    "appa.vsix",
+    "dist",
     "media/icon.png"
   ],
   "devDependencies": {

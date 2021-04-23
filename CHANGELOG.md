@@ -13,6 +13,12 @@
 |------|------|--------|---------|
 
 
+ ## Tag: v0.1.3
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
+| bed77c5 | 2021-04-23 | Chris Schubert | Ensuring vsix is included in packaging |
+
+
  ## Tag: v0.1.2
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
