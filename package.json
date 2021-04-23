@@ -93,7 +93,7 @@
     }
   },
   "files": [
-    "dist",
+    "extension.vsix",
     "media/icon.png"
   ],
   "devDependencies": {
