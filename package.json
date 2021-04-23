@@ -2,7 +2,7 @@
   "name": "appa",
   "displayName": "Appalachia Interactive",
   "description": "VSCode extension for Appalachia Interactive development.",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.55.0"
   },
@@ -50,7 +50,6 @@
     "onCommand:appa.format.sortImportsAndSaveAll",
     "onCommand:appa.format.sortImportsAndFormatAll",
     "onCommand:appa.format.sortImportsAndFormatAndSaveAll"
-
   ],
   "contributes": {
     "commands": [
@@ -112,13 +111,50 @@
         "appa.format.excludeFolders": {
           "type": "array",
           "default": [
-            ".github",".git", ".svn",
-            ".vs",".vscode",
-            "Bin","bin","obj","Obj","WIN32","ARM64","Debug","Release","debug","release","Generated Files","artifacts",
-            "logs","coverage","bower_components","build","node_modules","jspm_packages","web_modules",            
-            "__pycache__", "site-packages", "virtualenv", ".env", ".venv","develop-eggs","wheels","lib","parts","lib64","sdist","dist","var",
-            "out",".vscode-test","media",
-            "Library","Temp","Builds","MemoryCaptures"    
+            ".github",
+            ".git",
+            ".svn",
+            ".vs",
+            ".vscode",
+            "Bin",
+            "bin",
+            "obj",
+            "Obj",
+            "WIN32",
+            "ARM64",
+            "Debug",
+            "Release",
+            "debug",
+            "release",
+            "Generated Files",
+            "artifacts",
+            "logs",
+            "coverage",
+            "bower_components",
+            "build",
+            "node_modules",
+            "jspm_packages",
+            "web_modules",
+            "__pycache__",
+            "site-packages",
+            "virtualenv",
+            ".env",
+            ".venv",
+            "develop-eggs",
+            "wheels",
+            "lib",
+            "parts",
+            "lib64",
+            "sdist",
+            "dist",
+            "var",
+            "out",
+            ".vscode-test",
+            "media",
+            "Library",
+            "Temp",
+            "Builds",
+            "MemoryCaptures"
           ],
           "description": "List of folder to exclude when formatting all files."
         }
