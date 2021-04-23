@@ -25,6 +25,11 @@ function registerCommands(): vscode.Disposable {
     commandManager.register(
         // Format commands
         new commands.FormatAllCommand(),
+        new commands.FormatAndSaveAllCommand(),
+        new commands.SortImportsAllCommand(),
+        new commands.SortImportsAndSaveAllCommand(),
+        new commands.SortImportsAndFormatAllCommand(),
+        new commands.SortImportsAndFormatAndSaveAllCommand(),
     );
 
     return commandManager;

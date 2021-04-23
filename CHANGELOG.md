@@ -13,6 +13,12 @@
 |------|------|--------|---------|
 
 
+ ## Tag: v0.1.8
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
+| 4233607 | 2021-04-23 | Chris Schubert | Refactoring fotrmatting methods and fixing config reference path |
+
+
  ## Tag: v0.1.7
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|

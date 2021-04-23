@@ -37,14 +37,20 @@
     "postpublish": "bash ~/com.appalachia/appa/appa package vscode postpublish",
     "lint": "bash ~/com.appalachia/appa/appa package vscode lint",
     "compile": "bash ~/com.appalachia/appa/appa package vscode compile",
-    "watch": "bash ~/com.appalachia/appa/appa package vscode watch",
+    "watch": "webpack --watch",
     "test": "bash ~/com.appalachia/appa/appa package vscode test",
     "test-compile": "bash ~/com.appalachia/appa/appa package vscode test_compile",
-    "test-watch": "bash ~/com.appalachia/appa/appa package vscode test_watch"
+    "test-watch": "tsc -watch -p ./"
   },
   "main": "./dist/extension.js",
   "activationEvents": [
-    "onCommand:appa.format.formatAll"
+    "onCommand:appa.format.formatAll",
+    "onCommand:appa.format.formatAndSaveAll",
+    "onCommand:appa.format.sortImportsAll",
+    "onCommand:appa.format.sortImportsAndSaveAll",
+    "onCommand:appa.format.sortImportsAndFormatAll",
+    "onCommand:appa.format.sortImportsAndFormatAndSaveAll"
+
   ],
   "contributes": {
     "commands": [
@@ -52,13 +58,38 @@
         "command": "appa.format.formatAll",
         "title": "Format All Files In Workspace",
         "category": "Appalachia Interactive"
+      },
+      {
+        "command": "appa.format.formatAndSaveAll",
+        "title": "Format And Save All Files In Workspace",
+        "category": "Appalachia Interactive"
+      },
+      {
+        "command": "appa.format.sortImportsAll",
+        "title": "Sort Imports for All Files In Workspace",
+        "category": "Appalachia Interactive"
+      },
+      {
+        "command": "appa.format.sortImportsAndSaveAll",
+        "title": "Sort Imports And Save All Files In Workspace",
+        "category": "Appalachia Interactive"
+      },
+      {
+        "command": "appa.format.sortImportsAndFormatAll",
+        "title": "Sort Imports And Format All Files In Workspace",
+        "category": "Appalachia Interactive"
+      },
+      {
+        "command": "appa.format.sortImportsAndFormatAndSaveAll",
+        "title": "Sort Imports, Format, And Save All Files In Workspace",
+        "category": "Appalachia Interactive"
       }
     ],
     "configuration": {
       "type": "object",
       "title": "Appalachia Interactive",
       "properties": {
-        "appa.formatAll.includeFileExtensions": {
+        "appa.format.includeFileExtensions": {
           "type": "array",
           "default": [
             ".ts",
@@ -68,24 +99,26 @@
           ],
           "description": "List of file extensions to include when formating all files."
         },
-        "appa.format.formatAll.includeFileNames": {
+        "appa.format.includeFileNames": {
           "type": "array",
           "default": [],
           "description": "List of additional file names that will be included when formatting, regardless of matching by extension."
         },
-        "appa.format.formatAll.excludeFileNames": {
+        "appa.format.excludeFileNames": {
           "type": "array",
           "default": [],
           "description": "List of file names that will be excluded from formatting, regardless of matching by extension."
         },
-        "appa.format.formatAll.excludeFolders": {
+        "appa.format.excludeFolders": {
           "type": "array",
           "default": [
-            "node_modules",
-            "out",
-            ".vscode-test",
-            "media",
-            "__pycache__"
+            ".github",".git", ".svn",
+            ".vs",".vscode",
+            "Bin","bin","obj","Obj","WIN32","ARM64","Debug","Release","debug","release","Generated Files","artifacts",
+            "logs","coverage","bower_components","build","node_modules","jspm_packages","web_modules",            
+            "__pycache__", "site-packages", "virtualenv", ".env", ".venv","develop-eggs","wheels","lib","parts","lib64","sdist","dist","var",
+            "out",".vscode-test","media",
+            "Library","Temp","Builds","MemoryCaptures"    
           ],
           "description": "List of folder to exclude when formatting all files."
         }
